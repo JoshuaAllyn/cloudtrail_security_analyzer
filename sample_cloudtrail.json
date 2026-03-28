@@ -1,0 +1,161 @@
+{
+    "Records": [
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T08:15:22Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Success"
+            }
+        },
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T08:17:45Z",
+            "sourceIPAddress": "203.0.113.99",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "admin"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Failure"
+            },
+            "errorCode": "AccessDenied"
+        },
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T08:18:02Z",
+            "sourceIPAddress": "203.0.113.99",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "admin"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Failure"
+            },
+            "errorCode": "AccessDenied"
+        },
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T08:18:19Z",
+            "sourceIPAddress": "203.0.113.99",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "admin"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Failure"
+            },
+            "errorCode": "AccessDenied"
+        },
+        {
+            "eventName": "DescribeInstances",
+            "eventTime": "2026-03-23T09:01:00Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            }
+        },
+        {
+            "eventName": "CreateUser",
+            "eventTime": "2026-03-23T09:12:33Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            }
+        },
+        {
+            "eventName": "AttachUserPolicy",
+            "eventTime": "2026-03-23T09:13:01Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            }
+        },
+        {
+            "eventName": "RunInstances",
+            "eventTime": "2026-03-23T10:05:44Z",
+            "sourceIPAddress": "192.0.2.55",
+            "awsRegion": "ap-southeast-1",
+            "userIdentity": {
+                "userName": "deploy-bot"
+            }
+        },
+        {
+            "eventName": "StopInstances",
+            "eventTime": "2026-03-23T10:30:00Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            }
+        },
+        {
+            "eventName": "DeleteTrail",
+            "eventTime": "2026-03-23T11:00:15Z",
+            "sourceIPAddress": "203.0.113.50",
+            "awsRegion": "eu-west-1",
+            "userIdentity": {
+                "userName": "rogue-user"
+            }
+        },
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T11:22:00Z",
+            "sourceIPAddress": "203.0.113.50",
+            "awsRegion": "ap-northeast-2",
+            "userIdentity": {
+                "userName": "rogue-user"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Failure"
+            },
+            "errorCode": "AccessDenied"
+        },
+        {
+            "eventName": "PutBucketPolicy",
+            "eventTime": "2026-03-23T12:00:00Z",
+            "sourceIPAddress": "192.0.2.55",
+            "awsRegion": "ap-southeast-1",
+            "userIdentity": {
+                "userName": "deploy-bot"
+            }
+        },
+        {
+            "eventName": "AuthorizeSecurityGroupIngress",
+            "eventTime": "2026-03-23T12:15:30Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            }
+        },
+        {
+            "eventName": "ConsoleLogin",
+            "eventTime": "2026-03-23T13:00:00Z",
+            "sourceIPAddress": "198.51.100.14",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "jsmith"
+            },
+            "responseElements": {
+                "ConsoleLogin": "Success"
+            }
+        },
+        {
+            "eventName": "CreateAccessKey",
+            "eventTime": "2026-03-23T13:45:00Z",
+            "sourceIPAddress": "203.0.113.50",
+            "awsRegion": "us-east-1",
+            "userIdentity": {
+                "userName": "rogue-user"
+            }
+        }
+    ]
+}
