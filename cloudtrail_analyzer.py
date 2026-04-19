@@ -1,6 +1,13 @@
 import json
+import argparse
 from detections import detect_failed_logins, detect_unusual_regions, detect_sensitive_api_calls, detect_privilege_escalation
 from report import generate_report
+
+parser = argparse.ArgumentParser(description="CloudTrail Security Analyzer")
+parser.add_argument("filename", help="Path to CloudTrail JSON file")
+args = parser.parse_args()
+
+events = load_events(args.filename)
 
 def load_events(filename):
         try:
