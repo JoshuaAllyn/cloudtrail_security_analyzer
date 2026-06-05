@@ -1,5 +1,12 @@
 from mitre_mapping import mitre_mapping
 
+
+def enrich_finding(action):
+    clean_action = action.split(":")[-1]
+    mitre = mitre_mapping.get(clean_action)
+    return {"action": action, "mitre": mitre}   # mitre is None if no match
+
+
 def generate_report(num_of_events, failed_logins, unusual_regions, sensitive_api, priv_escalation):
     print("=" * 50)
     print("     CLOUDTRAIL SECURITY ANALYSIS REPORT")
@@ -30,8 +37,8 @@ def generate_report(num_of_events, failed_logins, unusual_regions, sensitive_api
         for user, calls in sensitive_api.items():
             print(f"  User: {user}")
             for action in calls:
-                clean_action = action.split(":")[-1]
-                mitre = mitre_mapping.get(clean_action)
+                finding = enrich_finding(action)
+                mitre = finding["mitre"]
                 if mitre:
                     print(f"    {action}  →  {mitre['id']} - {mitre['name']}")
                 else:
@@ -45,8 +52,8 @@ def generate_report(num_of_events, failed_logins, unusual_regions, sensitive_api
         for user, calls in priv_escalation.items():
             print(f"  User: {user}")
             for action in calls:
-                clean_action = action.split(":")[-1]
-                mitre = mitre_mapping.get(clean_action)
+                finding = enrich_finding(action)
+                mitre = finding["mitre"]
                 if mitre:
                     print(f"    {action}  →  {mitre['id']} - {mitre['name']}")
                 else:
