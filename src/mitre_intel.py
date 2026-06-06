@@ -1,10 +1,18 @@
 import json
 import os
 
-_DEFAULT_PATH = os.path.normpath(
-    os.path.join(os.path.dirname(__file__), "..", "data", "enterprise-attack.json")
-)
+def _resolve_data_path():
+    here = os.path.dirname(__file__)
+    candidates = [
+        os.path.join(here, "data", "enterprise-attack.json"),         # flat (Lambda)
+        os.path.join(here, "..", "data", "enterprise-attack.json"),   # src/ sibling (CLI)
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            return os.path.normpath(c)
+    return os.path.normpath(candidates[0])
 
+_DEFAULT_PATH = _resolve_data_path()
 
 def load_techniques(path=_DEFAULT_PATH):
     with open(path, "r") as f:
