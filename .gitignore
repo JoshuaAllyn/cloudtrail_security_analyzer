@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
+venv/
 # Deployment artifacts
 *.zip
 trust-policy.json
