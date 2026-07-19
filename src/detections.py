@@ -1,3 +1,9 @@
+from mitre_mapping import mitre_mapping
+from cloudtrail_event import CloudTrailEvent
+from mitre_enricher import MitreEnricher
+
+_enricher = MitreEnricher()
+
 def detect_failed_logins(events):
         failed = {}
         for event in events:
@@ -24,14 +30,21 @@ def detect_unusual_regions(events):
         return unusual
 
 def detect_sensitive_api_calls(events):
-        sensitive_calls = ["CreateUser", "AttachUserPolicy", "DeleteTrail", "CreateAccessKey", "PutBucketPolicy", "AuthorizeSecurityGroupIngress"]
         sensitive = {}
         for event in events:
-                if event["eventName"] in sensitive_calls:
+                if event["eventName"] in mitre_mapping:
                         user = event["userIdentity"]["userName"]
+                        ct_event = CloudTrailEvent(
+                                event_name=event["eventName"],
+                                source_ip=event.get("sourceIPAddress"),
+                                user_identity=user,
+                                event_time=event.get("eventTime"),
+                                event_source=event.get("eventSource"),
+                        )
+                        enrichment = _enricher.enrich(ct_event)
                         if user not in sensitive:
                                 sensitive[user] = []
-                        sensitive[user].append(event["eventName"])
+                        sensitive[user].append(enrichment)
         return sensitive
 
 def detect_privilege_escalation(sensitive_api):
