@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+# Deployment artifacts
+*.zip
+trust-policy.json
+lambda-policy.json
+s3-notification.json
+
+# Environment
+.env
+*.env
+
+# AWS
+.aws/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+s3event.json
+response.json
+build/
