@@ -26,3 +26,4 @@ s3-notification.json
 Thumbs.db
 s3event.json
 response.json
+build/
