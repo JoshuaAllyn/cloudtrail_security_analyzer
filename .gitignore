@@ -24,3 +24,5 @@ s3-notification.json
 # OS
 .DS_Store
 Thumbs.db
+s3event.json
+response.json
