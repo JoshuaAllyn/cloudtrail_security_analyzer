@@ -106,7 +106,71 @@ python3 cloudtrail_analyzer.py ../sample_cloudtrail.json
 Sample output:
 
 ```
-<<< PASTE ACTUAL V2 OUTPUT FROM A LOCAL RUN HERE — the old sample predates STIX enrichment >>>
+==================================================
+     CLOUDTRAIL SECURITY ANALYSIS REPORT
+==================================================
+
+Total events analyzed: 15
+
+--------------------------------------------------
+  FAILED CONSOLE LOGINS
+--------------------------------------------------
+  User: admin
+    Attempts: 3
+    Source IPs: 203.0.113.99
+  User: rogue-user
+    Attempts: 1
+    Source IPs: 203.0.113.50
+
+--------------------------------------------------
+  UNUSUAL REGIONS
+--------------------------------------------------
+  eu-west-1: 1 event(s)
+  ap-northeast-2: 1 event(s)
+
+--------------------------------------------------
+  SENSITIVE API CALLS
+--------------------------------------------------
+  User: jsmith
+    T1110.001 - Password Guessing
+    T1136.003 - Cloud Account
+    T1098.003 - Additional Cloud Roles
+    T1562.007 - Disable or Modify Cloud Firewall
+    T1110.001 - Password Guessing
+  User: admin
+    T1110.001 - Password Guessing
+    T1110.001 - Password Guessing
+    T1110.001 - Password Guessing
+  User: rogue-user
+    T1562.008 - Disable or Modify Cloud Logs
+    T1110.001 - Password Guessing
+    T1098.001 - Additional Cloud Credentials
+  User: deploy-bot
+    T1530 - Data from Cloud Storage
+
+--------------------------------------------------
+  POSSIBLE PRIVILEGE ESCALATION
+--------------------------------------------------
+  User: jsmith
+    T1110.001 - Password Guessing
+    T1136.003 - Cloud Account
+    T1098.003 - Additional Cloud Roles
+    T1562.007 - Disable or Modify Cloud Firewall
+    T1110.001 - Password Guessing
+    WARNING: 5 sensitive actions by single user
+  User: admin
+    T1110.001 - Password Guessing
+    T1110.001 - Password Guessing
+    T1110.001 - Password Guessing
+    WARNING: 3 sensitive actions by single user
+  User: rogue-user
+    T1562.008 - Disable or Modify Cloud Logs
+    T1110.001 - Password Guessing
+    T1098.001 - Additional Cloud Credentials
+    WARNING: 3 sensitive actions by single user
+
+==================================================
+  END OF REPORT
 ```
 
 ## Lambda Deployment
